@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+ "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+
+
+<struts-config>
+	<form-beans>
+		<form-bean name="nameForm" type="com.subra.NameForm" />
+		<form-bean name="personalForm" type="com.subra.PersonForm" />
+
+	</form-beans>
+	
+	<action-mappings>
+		<action path="/Name" type="com.subra.NameAction" name="nameForm"
+			input="/index.jsp">
+			<forward name="success" path="/displayname.jsp" />
+			<forward name="failure" path="/index.jsp" />
+		</action>
+
+
+	<action path="/registernow" type="com.subra.PersonAction" name="personalForm" >
+	<!-- 	input="/register.jsp">   redundant -->
+		<forward name="success" path="/displayname.jsp" />
+		<forward name="failure" path="/register.jsp" />
+	</action>
+		
+		
+	</action-mappings>
+</struts-config>
